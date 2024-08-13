@@ -98,7 +98,7 @@ function Tab:Construct()
         task.spawn(function()
             while task.wait() do
                 if Flags.AimlockEnabled then
-                    local ClosestPlayer, ClosestDistance = GetClosestPlayerToMouse(Flags.AimlockFieldOfViewSize)
+                    local ClosestPlayer, ClosestDistance = GetClosestPlayerToMouse(Flags.AimlockFieldOfViewSize, Flags.AimbotIgnoreTeam)
 
                     if ClosestPlayer then
                         local BodyPart = ClosestPlayer.Character[Flags.AimlockBodyPart]
