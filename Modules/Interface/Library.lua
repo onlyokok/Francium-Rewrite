@@ -178,8 +178,25 @@ local ConvertKeys = {
     [Enum.KeyCode.Space] = "SPC",
 }
 
-local Library = {
+local Utility = {
+    Connections = {},
     Objects = {},
+    Drawings = {},
+    BindToRenderSteps = {},
+    DrawingTypes = {
+        "Quad",
+        "Square",
+        "Circle",
+        "Text",
+        "Line",
+        "Triangle",
+        "Font"
+    },
+    Errors = {},
+}
+
+local Library = {
+  Objects = {},
     ThemeMap = {},
     ThemeInstances = {},
     Images = {
@@ -207,7 +224,7 @@ local Library = {
         ["Element Background"] = Color3fromRGB(1, 16, 35),
         ["Dark Text"] = Color3fromRGB(190, 190, 190)
     },
-    Folder = "Puppyware",
+    Folder = "Francium Rewrite",
     ScreenGui = nil,
     TweenSpeed = 0.2,
     LerpSpeed = 0.02,
@@ -220,24 +237,8 @@ local Library = {
     },
     Keybinds = {},
     Notifications = {},
-    Fps = 0
-}
-
-local Utility = {
-    Connections = {},
-    Objects = {},
-    Drawings = {},
-    BindToRenderSteps = {},
-    DrawingTypes = {
-        "Quad",
-        "Square",
-        "Circle",
-        "Text",
-        "Line",
-        "Triangle",
-        "Font"
-    },
-    Errors = {},
+    Fps = 0,
+    Utility = Utility,
 }
 
 local fonts = {
