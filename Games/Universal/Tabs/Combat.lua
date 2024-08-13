@@ -75,6 +75,12 @@ function Tab:Construct()
         })
 
         Aimlock:Toggle({
+            Name = "Snap Line",
+            Status = true,
+            Flag = "AimlockSnapLine",
+        })
+
+        Aimlock:Toggle({
             Name = "Smoothing",
             Status = false,
             Flag = "AimlockSmoothing",
@@ -95,6 +101,10 @@ function Tab:Construct()
         FieldOfView.Radius = Flags.AimlockFieldOfViewSize
         FieldOfView.NumSides = 64
         FieldOfView.Color = Color3.fromRGB(255, 255, 255)
+
+        local Line = Drawing.new("Line")
+        Line.Thickness = 1
+        Line.Color = Color3.fromRGB(255, 255, 255)
 
         task.spawn(function()
             while task.wait() do
@@ -120,6 +130,20 @@ function Tab:Construct()
                                     workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, BodyPart.Position)
                                 end
                             end
+
+                            if Flags.AimlockSnapLine then
+                                local UserInputService = game:GetService("UserInputService")
+                                Line.Visible = true
+
+                                Line.From = Vector2.new(UserInputService:GetMouseLocation().X, UserInputService:GetMouseLocation().Y)
+                                
+                                local Vector, _ = workspace.CurrentCamera:WorldToViewportPoint(BodyPart.Position)
+                                Line.To = Vector2.new(Vector.X, Vector.Y)
+                            else
+                                Line.Visible = false
+                            end
+                        else
+                            Line.Visible = false
                         end
                     end
 
