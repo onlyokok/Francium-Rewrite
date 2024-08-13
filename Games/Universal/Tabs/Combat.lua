@@ -145,6 +145,8 @@ function Tab:Construct()
                         else
                             Line.Visible = false
                         end
+                    else
+                        Line.Visible = false
                     end
 
                     if Flags.AimlockShowFieldOfView then
