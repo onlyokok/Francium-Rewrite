@@ -98,7 +98,7 @@ function Tab:Construct()
         task.spawn(function()
             while task.wait() do
                 if Flags.AimlockEnabled then
-                    local ClosestPlayer, ClosestDistance = GetClosestPlayerToMouse(Flags.AimlockFieldOfViewSize, Flags.AimbotIgnoreTeam)
+                    local ClosestPlayer, ClosestDistance = GetClosestPlayerToMouse(Flags.AimlockFieldOfViewSize, Flags.AimlockIgnoreTeam)
 
                     if ClosestPlayer then
                         local BodyPart = ClosestPlayer.Character[Flags.AimlockBodyPart]
@@ -107,14 +107,14 @@ function Tab:Construct()
                             if Flags.AimlockCheckIfScoping then
                                 if game:GetService("UserInputService"):IsMouseButtonPressed(Enum.UserInputType.MouseButton2) then
                                     if Flags.AimlockSmoothing then
-                                        game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(Flags.AimbotSmoothness / 20), {CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, BodyPart.Position)}):Play()
+                                        game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(Flags.AimlockSmoothness / 20), {CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, BodyPart.Position)}):Play()
                                     else
                                         workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, BodyPart.Position)
                                     end
                                 end
                             else
                                 if Flags.AimlockSmoothing then
-                                    game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(Flags.AimbotSmoothness / 20), {CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, BodyPart.Position)}):Play()
+                                    game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(Flags.AimlockSmoothness / 20), {CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, BodyPart.Position)}):Play()
                                 else
                                     workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, BodyPart.Position)
                                 end
