@@ -180,6 +180,24 @@ function Tab:Construct()
             end
         })
     end
+
+    for _,Player in next, game.Players:GetPlayers() do
+        if Player ~= game.Players.LocalPlayer then
+            self.Package.Addons.Esp.New(Player)
+        end
+    end
+
+    game.Players.PlayerAdded:Connect(function(Player)
+        self.Package.Addons.Esp.New(Player)
+    end)
+
+    game.Players.PlayerRemoving:Connect(function(Player)
+        for _,Cached in next, self.Package.Addons.Esp.Cache do
+            if Cached.Player == Player then
+                Cached:Remove()
+            end
+        end
+    end)
 end
 
 function Tab:Setup(Package, Window)
