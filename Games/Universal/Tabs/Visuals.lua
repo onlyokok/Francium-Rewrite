@@ -189,7 +189,6 @@ function Tab:Construct()
 
     game.Players.PlayerAdded:Connect(function(Player)
         self.Package.Addons.Esp.New(Player)
-        print("Made Esp.Settings for " .. Player)
     end)
 
     game.Players.PlayerRemoving:Connect(function(Player)
@@ -203,7 +202,7 @@ end
 
 function Tab:Setup(Package, Window)
     self.Package = Package
-    
+
     self.Window = Window
     self.Tab = Window:Tab({Name = "Visuals"})
 

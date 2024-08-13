@@ -1,4 +1,4 @@
-getgenv().Esp = {
+local Esp = {
     Settings = {
         Enabled = true,
         LimitDistance = false,
