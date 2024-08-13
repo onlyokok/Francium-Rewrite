@@ -189,6 +189,7 @@ function Tab:Construct()
 
     game.Players.PlayerAdded:Connect(function(Player)
         self.Package.Addons.Esp.New(Player)
+        print("Made Esp for " .. Player)
     end)
 
     game.Players.PlayerRemoving:Connect(function(Player)
