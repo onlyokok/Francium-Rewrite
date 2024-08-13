@@ -16,7 +16,7 @@ Package.Interface.Library:Notify({
     Animation = "Bounce",
 })
 
-Package.Addons = loadstring(game:HttpGet(`{Modules}/Addons/Esp.lua`))()
+Package.Addons.Esp = loadstring(game:HttpGet(`{Modules}/Addons/Esp.lua`))()
 Package.Interface.Library:Notify({
     Text = "Loaded Addons",
     Time = 5,
