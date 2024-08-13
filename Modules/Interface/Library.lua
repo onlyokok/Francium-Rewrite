@@ -196,7 +196,7 @@ local Utility = {
 }
 
 local Library = {
-  Objects = {},
+    Objects = {},
     ThemeMap = {},
     ThemeInstances = {},
     Images = {

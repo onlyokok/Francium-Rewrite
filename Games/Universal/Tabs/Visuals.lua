@@ -175,11 +175,39 @@ function Tab:Construct()
             Flag = "EspChamsColor", 
             Color = Color3.fromRGB(255, 255, 255),
             Callback = function(Value)
+                table.foreach(Value, print)
                 self.Package.Addons.Esp.Settings.ChamsColor = Value.c
                 self.Package.Addons.Esp.Settings.ChamsTransparency = Value.a
             end
         })
     end
+
+    local Misc = self.Tab:Section({Name = "Misc", Side = "Right"}) do
+        Misc:Toggle({
+            Name = "Field Of View",
+            Status = false,
+            Flag = "FieldOfView",
+        })
+
+        Misc:Slider({
+            Name = "Value",
+            Flag = "FieldOfViewValue",
+            Min = 10,
+            Max = 20,
+            Value = 12,
+            Float = 1,
+        })
+    end
+
+    task.spawn(function()
+        while task.wait() do
+            if Flags.FieldOfView.Status then
+                workspace.CurrentCamera.FieldOfView = Flags.FieldOfViewValue.Value
+            else
+                workspace.CurrentCamera.FieldOfView = 70
+            end
+        end
+    end)
 
     for _,Player in next, game.Players:GetPlayers() do
         if Player ~= game.Players.LocalPlayer then
