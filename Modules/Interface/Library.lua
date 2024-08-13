@@ -241,6 +241,8 @@ local Library = {
     Utility = Utility,
 }
 
+getgenv().Flags = Library.Flags
+
 local FontsPath = "https://raw.githubusercontent.com/onlyokok/Francium-Rewrite/main/Modules/Interface/Fonts"
 
 local fonts = {

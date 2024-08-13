@@ -18,7 +18,7 @@ local Esp = {
         TextFont = 3,
         TextSize = 12,
         Chams = false,
-        ChamsColor = Color3.fromRGB(0, 255, 0),
+        ChamsColor = Color3.fromRGB(255, 255, 255),
         ChamsTransparency = 0.25
     },
     Groups = {},
