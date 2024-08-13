@@ -201,8 +201,8 @@ function Tab:Construct()
 
     task.spawn(function()
         while task.wait() do
-            if Flags.FieldOfView.Status then
-                workspace.CurrentCamera.FieldOfView = Flags.FieldOfViewValue.Value
+            if Flags.FieldOfView then
+                workspace.CurrentCamera.FieldOfView = Flags.FieldOfViewValue
             else
                 workspace.CurrentCamera.FieldOfView = 70
             end
