@@ -124,6 +124,8 @@ function Tab:Construct()
 
                     if Flags.AimlockShowFieldOfView then
                         FieldOfView.Visible = true
+
+                        FieldOfView.Radius = Flags.AimlockFieldOfViewSize
                     else
                         FieldOfView.Visible = false
                     end
