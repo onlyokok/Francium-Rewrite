@@ -1,13 +1,13 @@
 local Tab = {}
 
-function Tab:Construct(Package)
+function Tab:Construct()
     local Settings = self.Tab:Section({Name = "Settings", Side = "Left"}) do
         Settings:Toggle({
             Name = "Enabled",
             Status = true,
             Flag = "EspEnabled",
             Callback = function(Value)
-                Package.Addons.Esp.Settings.Enabled = Value
+                self.Package.Addons.Esp.Settings.Enabled = Value
             end
         })
 
@@ -16,7 +16,7 @@ function Tab:Construct(Package)
             Status = false,
             Flag = "EspLimitDistance",
             Callback = function(Value)
-                Package.Addons.Esp.Settings.LimitDistance = Value
+                self.Package.Addons.Esp.Settings.LimitDistance = Value
             end
         })
 
@@ -28,7 +28,7 @@ function Tab:Construct(Package)
             Value = 20000,
             Float = 1,
             Callback = function(Value)
-                Package.Addons.Esp.Settings.MaxDistance = Value
+                self.Package.Addons.Esp.Settings.MaxDistance = Value
             end
         })
 
@@ -37,7 +37,7 @@ function Tab:Construct(Package)
             Status = false,
             Flag = "EspFilterTeam",
             Callback = function(Value)
-                Package.Addons.Esp.Settings.CheckTeam = Value
+                self.Package.Addons.Esp.Settings.CheckTeam = Value
             end
         })
 
@@ -46,7 +46,7 @@ function Tab:Construct(Package)
             Status = false,
             Flag = "EspUseTeamColor",
             Callback = function(Value)
-                Package.Addons.Esp.Settings.UseTeamColor = Value
+                self.Package.Addons.Esp.Settings.UseTeamColor = Value
             end
         })
 
@@ -63,7 +63,7 @@ function Tab:Construct(Package)
             Value = "Monospace", 
             Flag = "EspTextFont", 
             Callback = function(Value)
-                Package.Addons.Esp.Settings.TextFont = Fonts[Value]
+                self.Package.Addons.Esp.Settings.TextFont = Fonts[Value]
             end
         })
 
@@ -75,7 +75,7 @@ function Tab:Construct(Package)
             Value = 12,
             Float = 1,
             Callback = function(Value)
-                Package.Addons.Esp.Settings.TextSize = Value
+                self.Package.Addons.Esp.Settings.TextSize = Value
             end
         })
     end
@@ -86,14 +86,14 @@ function Tab:Construct(Package)
             Status = false,
             Flag = "EspNameText",
             Callback = function(Value)
-                Package.Addons.Esp.Settings.Name = Value
+                self.Package.Addons.Esp.Settings.Name = Value
             end
         }):Colorpicker({
             Name = "Name Text Color", 
             Flag = "EspNameTextColor", 
             Color = Color3.fromRGB(255, 255, 255),
             Callback = function(Value)
-                Package.Addons.Esp.Settings.NameColor = Value.c
+                self.Package.Addons.Esp.Settings.NameColor = Value.c
             end
         })
 
@@ -102,7 +102,7 @@ function Tab:Construct(Package)
             Status = false,
             Flag = "EspDistance",
             Callback = function(Value)
-                Package.Addons.Esp.Settings.ShowDistance = Value
+                self.Package.Addons.Esp.Settings.ShowDistance = Value
             end
         })
 
@@ -111,14 +111,14 @@ function Tab:Construct(Package)
             Status = false,
             Flag = "EspMiscText",
             Callback = function(Value)
-                Package.Addons.Esp.Settings.Misc = Value
+                self.Package.Addons.Esp.Settings.Misc = Value
             end
         }):Colorpicker({
             Name = "Misc Text Color", 
             Flag = "EspMiscTextColor", 
             Color = Color3.fromRGB(255, 255, 255),
             Callback = function(Value)
-                Package.Addons.Esp.Settings.MiscColor = Value.c
+                self.Package.Addons.Esp.Settings.MiscColor = Value.c
             end
         })
 
@@ -127,14 +127,14 @@ function Tab:Construct(Package)
             Status = false,
             Flag = "EspBoxes",
             Callback = function(Value)
-                Package.Addons.Esp.Settings.Box = Value
+                self.Package.Addons.Esp.Settings.Box = Value
             end
         }):Colorpicker({
             Name = "Box Color", 
             Flag = "EspBoxColor", 
             Color = Color3.fromRGB(255, 255, 255),
             Callback = function(Value)
-                Package.Addons.Esp.Settings.BoxColor = Value.c
+                self.Package.Addons.Esp.Settings.BoxColor = Value.c
             end
         })
 
@@ -143,7 +143,7 @@ function Tab:Construct(Package)
             Status = false,
             Flag = "EspHealthBars",
             Callback = function(Value)
-                Package.Addons.Esp.Settings.HealthBar = Value
+                self.Package.Addons.Esp.Settings.HealthBar = Value
             end
         })
 
@@ -152,14 +152,14 @@ function Tab:Construct(Package)
             Status = false,
             Flag = "EspHealthText",
             Callback = function(Value)
-                Package.Addons.Esp.Settings.HealthText = Value
+                self.Package.Addons.Esp.Settings.HealthText = Value
             end
         }):Colorpicker({
             Name = "Health Text Color", 
             Flag = "EspHealthTextColor", 
             Color = Color3.fromRGB(0, 255, 0),
             Callback = function(Value)
-                Package.Addons.Esp.Settings.HealthTextColor = Value.c
+                self.Package.Addons.Esp.Settings.HealthTextColor = Value.c
             end
         })
 
@@ -168,32 +168,32 @@ function Tab:Construct(Package)
             Status = false,
             Flag = "EspChams",
             Callback = function(Value)
-                Package.Addons.Esp.Settings.Chams = Value
+                self.Package.Addons.Esp.Settings.Chams = Value
             end
         }):Colorpicker({
             Name = "Chams Color", 
             Flag = "EspChamsColor", 
             Color = Color3.fromRGB(255, 255, 255),
             Callback = function(Value)
-                Package.Addons.Esp.Settings.ChamsColor = Value.c
-                Package.Addons.Esp.Settings.ChamsTransparency = Value.a
+                self.Package.Addons.Esp.Settings.ChamsColor = Value.c
+                self.Package.Addons.Esp.Settings.ChamsTransparency = Value.a
             end
         })
     end
 
     for _,Player in next, game.Players:GetPlayers() do
         if Player ~= game.Players.LocalPlayer then
-            Package.Addons.Esp.New(Player)
+            self.Package.Addons.Esp.New(Player)
         end
     end
 
     game.Players.PlayerAdded:Connect(function(Player)
-        Package.Addons.Esp.New(Player)
+        self.Package.Addons.Esp.New(Player)
         print("Made Esp.Settings for " .. Player)
     end)
 
     game.Players.PlayerRemoving:Connect(function(Player)
-        for _,Cached in next, Package.Addons.Esp.Cache do
+        for _,Cached in next, self.Package.Addons.Esp.Cache do
             if Cached.Player == Player then
                 Cached:Remove()
             end
@@ -202,10 +202,12 @@ function Tab:Construct(Package)
 end
 
 function Tab:Setup(Package, Window)
+    self.Package = Package
+    
     self.Window = Window
     self.Tab = Window:Tab({Name = "Visuals"})
 
-    self:Construct(Package)
+    self:Construct()
 end
 
 return Tab
