@@ -241,16 +241,16 @@ local Library = {
     Utility = Utility,
 }
 
-local FontsPath = 
+local FontsPath = "https://raw.githubusercontent.com/onlyokok/Francium-Rewrite/main/Modules/Interface/Fonts"
 
 local fonts = {
-    { ttf = "Proggy.ttf", json = "Proggy.json", url = "https://raw.githubusercontent.com/OxygenClub/Random-LUAS/main/Proggy.txt", name = "Proggy" },
-    { ttf = "Minecraftia.ttf", json = "Minecraftia.json", url = "https://raw.githubusercontent.com/OxygenClub/Random-LUAS/main/Minecraftia.txt", name = "Minecraftia" },
-    { ttf = "SmallestPixel7.ttf", json = "SmallestPixel7.json", url = "https://raw.githubusercontent.com/OxygenClub/Random-LUAS/main/Smallest%20Pixel.txt", name = "SmallestPixel7" },
-    { ttf = "Verdana.ttf", json = "Verdana.json", url = "https://raw.githubusercontent.com/OxygenClub/Random-LUAS/main/Verdana.txt", name = "Verdana" },
-    { ttf = "VerdanaBold.ttf", json = "VerdanaBold.json", url = "https://raw.githubusercontent.com/OxygenClub/Random-LUAS/main/Verdana%20Bold.txt", name = "VerdanaBold" },
-    { ttf = "Tahoma.ttf", json = "Tahoma.json", url = "https://raw.githubusercontent.com/OxygenClub/Random-LUAS/main/Tahoma.txt", name = "Tahoma" },
-    { ttf = "TahomaBold.ttf", json = "TahomaBold.json", url = "https://raw.githubusercontent.com/OxygenClub/Random-LUAS/main/Tahoma%20Bold.txt", name = "TahomaBold" }
+    { ttf = "Proggy.ttf", json = "Proggy.json", url = `{FontsPath}/Proggy.txt`, name = "Proggy" },
+    { ttf = "Minecraftia.ttf", json = "Minecraftia.json", url = `{FontsPath}/Minecraftia.txt`, name = "Minecraftia" },
+    { ttf = "SmallestPixel7.ttf", json = "SmallestPixel7.json", url = `{FontsPath}/SmallestPixel7.txt`, name = "SmallestPixel7" },
+    { ttf = "Verdana.ttf", json = "Verdana.json", url = `{FontsPath}/Verdana.txt`, name = "Verdana" },
+    { ttf = "VerdanaBold.ttf", json = "VerdanaBold.json", url = `{FontsPath}/VerdanaBold.txt`, name = "VerdanaBold" },
+    { ttf = "Tahoma.ttf", json = "Tahoma.json", url = `{FontsPath}/Tahoma.txt`, name = "Tahoma" },
+    { ttf = "TahomaBold.ttf", json = "TahomaBold.json", url = `{FontsPath}/TahomaBold.txt`, name = "TahomaBold" }
 }
 
 for _, font in fonts do
