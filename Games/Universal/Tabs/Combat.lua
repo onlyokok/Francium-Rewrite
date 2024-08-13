@@ -126,6 +126,9 @@ function Tab:Construct()
                         FieldOfView.Visible = true
 
                         FieldOfView.Radius = Flags.AimlockFieldOfViewSize
+
+                        local UserInputService = game:GetService("UserInputService")
+                        FieldOfView.Position = Vector2.new(UserInputService:GetMouseLocation().X, UserInputService:GetMouseLocation().Y)
                     else
                         FieldOfView.Visible = false
                     end
@@ -136,7 +139,7 @@ function Tab:Construct()
         end)
     end
 
-    local StickyMouse = self.Tab:Section({Name = "Sticky Mouse", Side = "Left"}) do
+    local StickyMouse = self.Tab:Section({Name = "Sticky Mouse", Side = "Right"}) do
         
     end
 end
