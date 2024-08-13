@@ -183,17 +183,17 @@ function Tab:Construct(Package)
 
     for _,Player in next, game.Players:GetPlayers() do
         if Player ~= game.Players.LocalPlayer then
-            Package.Addons.Esp.Settings.New(Player)
+            Package.Addons.Esp.New(Player)
         end
     end
 
     game.Players.PlayerAdded:Connect(function(Player)
-        Package.Addons.Esp.Settings.New(Player)
+        Package.Addons.Esp.New(Player)
         print("Made Esp.Settings for " .. Player)
     end)
 
     game.Players.PlayerRemoving:Connect(function(Player)
-        for _,Cached in next, Package.Addons.Esp.Settings.Cache do
+        for _,Cached in next, Package.Addons.Esp.Cache do
             if Cached.Player == Player then
                 Cached:Remove()
             end
