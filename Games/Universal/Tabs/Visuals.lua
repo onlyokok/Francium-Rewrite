@@ -192,9 +192,9 @@ function Tab:Construct()
         Misc:Slider({
             Name = "Value",
             Flag = "FieldOfViewValue",
-            Min = 10,
-            Max = 20,
-            Value = 12,
+            Min = 70,
+            Max = 120,
+            Value = 70,
             Float = 1,
         })
     end
