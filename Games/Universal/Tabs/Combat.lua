@@ -8,7 +8,8 @@ function Tab:Construct()
         local ClosestPlayer, ClosestDistance = nil, math.huge
 
         for _,Player in next, game.Players:GetPlayers() do
-            if Player.Character 
+            if  Player ~= game.Players.LocalPlayer
+            and Player.Character 
             and Player.Character 
             and Player.Character:FindFirstChild("HumanoidRootPart") 
             and Player.Character:FindFirstChild("Humanoid")
