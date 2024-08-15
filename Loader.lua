@@ -17,6 +17,7 @@ Package.Interface.Library:Notify({
 })
 
 Package.Addons.Esp = loadstring(game:HttpGet(`{Modules}/Addons/Esp.lua`))()
+Package.Addons.Webhook = loadstring(game:HttpGet(`{Modules}/Addons/Webhook.lua`))()
 Package.Interface.Library:Notify({
     Text = "Loaded Addons",
     Time = 5,
