@@ -5,7 +5,7 @@ local Esp = {
         MaxDistance = 9e9,
         CheckTeam = false,
         UseTeamColor = false,
-        ShowDistance = false,
+        Distance = false,
         Box = false,
         BoxColor = Color3.fromRGB(255, 255, 255),
         HealthBar = false,
@@ -122,10 +122,10 @@ function Esp:Construct()
         ZIndex = 3
     })
 
-    self.Drawings.Misc = self:_Create("Text", {
+    self.Drawings.Distance = self:_Create("Text", {
         Visible = false,
         Outline = true,
-        Text = "Empty",
+        Text = "",
         Color = Color3.new(1, 1, 1),
         Size = Esp.Settings.TextSize,
         Font = Esp.Settings.TextFont,
@@ -201,15 +201,15 @@ function Esp:Render()
 
                 self.Drawings.Name.Position = Vector2.new(self.Drawings.Box.Position.X + (self.Drawings.Box.Size.X / 2), (self.Drawings.Box.Position.Y + self.Drawings.Box.Size.Y) - (Esp.Settings.TextSize + 5))
                 self.Drawings.Name.Color = Esp.Settings.UseTeamColor and self.Player.TeamColor.Color or Esp.Settings.NameColor
-                self.Drawings.Name.Text = (Esp.Settings.ShowDistance and `{self.Player.Name} [{Distance}]`) or self.Player.Name
+                self.Drawings.Name.Text = `[{self.Player.Name}]`
                 self.Drawings.Name.Font = Esp.Settings.TextFont
                 self.Drawings.Name.Size = Esp.Settings.TextSize
 
-                self.Drawings.Misc.Position = Vector2.new(self.Drawings.Box.Position.X + (self.Drawings.Box.Size.X / 2), self.Drawings.Box.Position.Y + 2)
-                self.Drawings.Misc.Color = Esp.Settings.MiscColor
-                self.Drawings.Misc.Font = Esp.Settings.TextFont
-                self.Drawings.Misc.Size = Esp.Settings.TextSize
-                self.Drawings.Misc.Text = self.Misc
+                self.Drawings.Distance.Position = Vector2.new(self.Drawings.Box.Position.X + (self.Drawings.Box.Size.X / 2), self.Drawings.Box.Position.Y + 2)
+                self.Drawings.Distance.Color = Esp.Settings.MiscColor
+                self.Drawings.Distance.Font = Esp.Settings.TextFont
+                self.Drawings.Distance.Size = Esp.Settings.TextSize
+                self.Drawings.Distance.Text = `[{Distance}]`
 
                 self.Drawings.HealthText.Position = self.Drawings.HealthBarBackground.Position + Vector2.new(-15, self.Drawings.HealthBarBackground.Size.Y - (self.Drawings.HealthBarBackground.Size.Y - self.Drawings.HealthBar.Size.Y) - 5)
                 self.Drawings.HealthText.Color = Esp.Settings.HealthTextColor
@@ -225,7 +225,7 @@ function Esp:Render()
             self.Drawings.HealthBarBackground.Visible = Visible and Esp.Settings.HealthBar
             self.Drawings.HealthBar.Visible = Visible and Esp.Settings.HealthBar
             self.Drawings.Name.Visible = Visible and Esp.Settings.Name
-            self.Drawings.Misc.Visible = Visible and Esp.Settings.Misc
+            self.Drawings.Drawings.Visible = Visible and Esp.Settings.Distance
             self.Drawings.HealthText.Visible = Visible and Esp.Settings.HealthText and HealthDecimal ~= 1
             self.Drawings.Highlight.Enabled = Visible and Esp.Settings.Chams
             self.Drawings.Highlight.Adornee = self.Player.Character
@@ -235,7 +235,7 @@ function Esp:Render()
             self.Drawings.HealthBarBackground.Visible = false
             self.Drawings.HealthBar.Visible = false
             self.Drawings.Name.Visible = false
-            self.Drawings.Misc.Visible = false
+            self.Drawings.Distance.Visible = false
             self.Drawings.HealthText.Visible = false
             self.Drawings.Highlight.Enabled = false
         end
